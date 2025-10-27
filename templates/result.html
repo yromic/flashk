@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Prediksi</title>
-    <!-- Muat Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -13,7 +13,6 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <!-- Logic untuk menentukan warna berdasarkan hasil -->
     {% set is_sick = (label.lower() == 'sakit') %}
     {% set card_border_color = 'border-red-500' if is_sick else 'border-green-500' %}
     {% set text_color = 'text-red-600' if is_sick else 'text-green-600' %}
@@ -26,12 +25,10 @@
         <div class="p-8 text-center">
             <h1 class="text-2xl font-bold text-gray-900 mb-6">Hasil Prediksi</h1>
 
-            <!-- Gambar yang Di-upload -->
             <img src="{{ url_for('static', filename='uploads/' + filename) }}" 
                  alt="Gambar Daun" 
                  class="w-64 h-64 object-cover rounded-lg mx-auto shadow-md border-4 border-gray-200">
 
-            <!-- Hasil Prediksi -->
             <div class="mt-6">
                 <p class="text-sm text-gray-500 mb-2">Hasil Deteksi:</p>
                 <span class="px-4 py-2 rounded-full font-bold text-lg {{ badge_bg_color }}">
@@ -39,13 +36,11 @@
                 </span>
             </div>
 
-            <!-- Keyakinan -->
             <div class="mt-6">
                 <p class="text-sm text-gray-500">Tingkat Keyakinan</p>
                 <p class="text-4xl font-bold {{ text_color }}">{{ confidence }}%</p>
             </div>
 
-            <!-- Tombol Coba Lagi -->
             <a href="/" 
                class="mt-8 inline-block w-full py-3 px-4 rounded-lg text-sm font-medium
                       text-white bg-gray-700 hover:bg-gray-800 focus:outline-none
